@@ -1,0 +1,24 @@
+x_min = 0.5
+x_max = 0.75
+
+ylim_min = 0.0
+ylim_max = 1.0
+
+x = generate_data(x_min, x_max, 100000)
+
+mean, std = compute_mean_std(x)
+
+y = get_normal_pdf(x, mean, std)
+
+plot_normal(x, y)#, x_min, x_max, ylim_min, ylim_max)
+
+z = standardize(x)
+
+x_min = z[0]
+x_max = z[len(z) - 1]
+
+new_mean, new_std = compute_mean_std(z)
+
+new_y = get_normal_pdf(z, new_mean, new_std)
+
+plot_normal(z, new_y)#, x_min, x_max, ylim_min, ylim_max)
